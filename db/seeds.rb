@@ -3,5 +3,8 @@
 #
 # Examples:
 #
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+
+
+games = Game.create(address: "56 rue de chabrol", date: Date.new(2001,2,3))
+
+#Character.create(name: 'Luke', movie: movies.first)
