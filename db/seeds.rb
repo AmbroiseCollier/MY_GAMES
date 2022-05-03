@@ -3,8 +3,18 @@
 #
 # Examples:
 #
+require 'faker'
 
+puts "Cleaning database..."
+Game.destroy_all
 
-games = Game.create(address: "56 rue de chabrol", date: Date.new(2001,2,3))
+puts "Creating games..."
 
-#Character.create(name: 'Luke', movie: movies.first)
+100.times do
+  games =  Game.create(
+    address: Faker::Address.full_address,
+    date: Date.new(2001,2,3)
+)
+end
+
+puts "Finished!"
