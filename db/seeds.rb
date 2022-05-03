@@ -3,5 +3,18 @@
 #
 # Examples:
 #
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
+
+puts "Cleaning database..."
+Game.destroy_all
+
+puts "Creating games..."
+
+100.times do
+  games =  Game.create(
+    address: Faker::Address.full_address,
+    date: Date.new(2001,2,3)
+)
+end
+
+puts "Finished!"
