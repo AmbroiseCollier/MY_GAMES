@@ -1,2 +1,6 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<% i = 0 %>
+<% @games.each do |game| %>
+<h3> Game number: <%= i += 1%></h3>
+<h3> Date of the game: <%= game.date %></h3>
+<h3>Adress of the game: <%= game.address %></h3>
+<% end %>
