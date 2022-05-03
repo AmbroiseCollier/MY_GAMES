@@ -9,8 +9,11 @@ class GamesController < ApplicationController
 
   def create
     @game = Game.new(game_params)
-    @game.save
-    redirect_to root_path
+    if @game.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   private
