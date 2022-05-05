@@ -1,5 +1,7 @@
 <%= simple_form_for(@game) do |f| %>
   <%= f.input :address %>
+  <%= f.input :city %>
   <%= f.input :date, as: :date, html5: true %>
   <%= f.submit %>
 <% end %>
+<%= link_to "Return to home page", root_path, class: "btn btn-primary btn-lg active" %>
