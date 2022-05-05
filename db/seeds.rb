@@ -8,7 +8,7 @@ puts "Creating games..."
 100.times do
   games =  Game.create(
     address: Faker::Address.full_address,
-    date: Date.new(2001,2,3),
+    date: Faker::Date.in_date_period,
     city: Faker::Address.city,
 )
 end
