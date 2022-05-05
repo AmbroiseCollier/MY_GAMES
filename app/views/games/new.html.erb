@@ -1,7 +1,6 @@
 <%# <h1 class="header-title"> CREATE A GAME </h1> %>
-  <%= simple_form_for(@game) do |f| %>
+<%= simple_form_for(@game) do |f| %>
   <%= f.input :address %>
   <%= f.input :date, as: :date, html5: true %>
-  <%# Add <% f.submit class: "create-game-button" %> %>
+<%# Add <% f.submit class: "create-game-button" %> %>
   <%= f.submit %>
-</div>
