@@ -1,0 +1,5 @@
+<%= simple_form_for(@game) do |f| %>
+  <%= f.input :address %>
+  <%= f.input :date, as: :date, html5: true %>
+  <%= f.submit %>
+<% end %>
