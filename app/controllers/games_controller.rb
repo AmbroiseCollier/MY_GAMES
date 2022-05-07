@@ -32,6 +32,18 @@ class GamesController < ApplicationController
   def show
   end
 
+  def edit
+  end
+
+  def update
+    if @game.update(game_params)
+      redirect_to game_path(@game)
+    else
+      render :new
+    end
+  end
+
+
   def destroy
     @game.destroy
     redirect_to root_path
