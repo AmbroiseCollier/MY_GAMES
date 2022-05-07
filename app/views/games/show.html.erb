@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-8">
+    <div>
       <h1 class="header-title">About the game</h1>
       <div class="show-container">
           <img src="<%= @game.picture_url %>">
@@ -24,20 +24,15 @@
             </div>
           </div>
       </div>
-    </div>
-    <div class="col-4">
-      <div class="sidebar">
-        <h2 class="header-title">Action Control</h2>
-        <div class="controls">
-          <i class="me-2"><%= link_to "Back ",root_path %></i>
-          <i class="me-2"><%= link_to "Edit ",edit_game_path %></i>
+      <div class="controls">
+          <%= link_to "⬅️ Back ",root_path %>
+          <%= link_to "✒️ Edit ",edit_game_path %>
           <%# <i class="me-2"><%= link_to "Delete", game_path(@game),
               method: :delete,
               data: {confirm: "Are you sure?"},
               class: "nav-item px-1 text-danger"
             %>
         </div>
-      </div>
     </div>
   </div>
 

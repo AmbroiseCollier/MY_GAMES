@@ -5,28 +5,21 @@
 }
 
 .show-container > img {
-  height: 200px;
+  height: 300px;
   width: 100%;
   object-fit: cover;
+}
+
+.controls {
+  justify-content: space-between;
+  display: flex;
+  flex-direction: row;
 }
 
 .infos {
   margin: 20px 10px 0px 10px;
   display: flex;
   justify-content: space-around;
-}
-.controls {
-  display: flex;
-  flex-direction: column;
-}
-
-.controls i {
-  background-color: white;
-  border: gray;
-  border-radius: 30px;
-  width: 100px;
-  margin-bottom: 5px;
-  justify-content: center;
 }
 
 .controls a {
