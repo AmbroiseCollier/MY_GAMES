@@ -1,0 +1,37 @@
+.show-container {
+  background-color: greenyellow;
+  display: inline-flex;
+  justify-content: space-between;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+}
+
+.controls i {
+  background-color: white;
+  border: gray;
+  border-radius: 30px;
+  width: 100px;
+  margin-bottom: 5px;
+  justify-content: center;
+}
+
+.controls a {
+  text-decoration: none;
+  color: black;
+}
+
+.address {
+  background-color: blue;
+}
+
+.date {
+  background-color: yellow;
+}
+
+.image {
+  background-color: red;
+  width: 150px;
+}
