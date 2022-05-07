@@ -1,0 +1,29 @@
+.card-playground {
+  overflow: hidden;
+  background: black;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 50px;
+}
+
+.card-trip > img {
+  height: 200px;
+  width: 20%;
+  object-fit: cover;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+}
+
+.card-trip h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  color: white;
+  font-weight: bold;
+}
+
+.card-trip p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+  color: white;
+}
