@@ -1,6 +1,16 @@
 class GamesController < ApplicationController
   def index
-    @games = Game.all
+    @city = params[:city]
+    @date = params[:date]
+    if (@city.present? && @date.present?)
+     @games = Game.where(city: @city, date: @date)
+    elsif ((@city.present?) && ((@date.present? == false) && true))
+      @games = Game.where("city LIKE ?","%#{params[:city]}%")
+    elsif ((@date.present?) && ((@city.present? == false) && true))
+      @games = Game.where(date: params[:date])
+    else
+      @games = Game.all
+    end
   end
 
   def new
