@@ -47,3 +47,11 @@
   align-items: flex-end;
   position: relative;
 }
+
+.card-bottom > a {
+  text-align: left;
+  text-decoration: none;
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+}
