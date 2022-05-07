@@ -1,18 +1,25 @@
 <div class="container">
   <div class="row">
-  <div class="col-6">
-  <% @games.each do |game| %>
-<div class="card-trip">
-  <img src="<%= game.picture_url %>" />
-  <div class="card-trip-infos">
-    <div>
-      <h2><%= game.address %></h2>
-      <p><%= game.city %></p>
-      <p><%= game.date %></p>
+    <div class="col-12">
+      <h1>Find here all the games..looking for partner</h1>
     </div>
   </div>
-</div>
-  <% end %>
+
+
+<div class="main-container d-flex">
+  <div class="row">
+    <% @games.each do |game| %>
+      <div class="col-3 card-trip m-3" style="width: 25rem;">
+        <img src= <%=game.picture_url%> alt="Img game" style="height: 15rem;">
+        <div class="">
+          <h2>Game on: <%= game.date %></h2>
+          <p>At: <%= game.address %></p>
+          <p>City: <%= game.city %></p>
+        </div>
+        <div class="card-footer">
+          <li><%=link_to 'More info', game_path(game), class: "nav-item px-1" %></li>
+        </div>
+      </div>
+    <% end %>
   </div>
-</div>
 </div>
