@@ -1,4 +1,7 @@
 class GamesController < ApplicationController
+  before_action :find_game, only: [:show, :edit, :update, :destroy]
+
+
   def index
     @city = params[:city]
     @date = params[:date]
@@ -26,7 +29,19 @@ class GamesController < ApplicationController
     end
   end
 
+  def show
+  end
+
+  def destroy
+    @game.destroy
+    redirect_to root_path
+  end
+
   private
+
+  def find_game
+    @game = Game.find(params[:id])
+  end
 
   def game_params
     params.require(:game).permit(:address, :date)
