@@ -1,36 +1,38 @@
 <div class="container">
   <div class="row">
-    <div class="col-8">
+    <div>
       <h1 class="header-title">About the game</h1>
       <div class="show-container">
-          <div class="image">
-            <img src="<%= @game.picture_url %>">
+          <img src="<%= @game.picture_url %>">
+          <div class="infos">
+            <div class="adress">
+              <div class="adress-icon">
+                <h3>📍</h3>
+              </div>
+              <div class="adress-content">
+                <p><%= @game.address %></p>
+                <p><%= @game.city %></p>
+              </div>
+            </div>
+            <div class="show-date">
+              <div class="date-icon">
+                <h3>📅</h3>
+              </div>
+              <div class="date-content">
+                <p><%= @game.date %></p>
+              </div>
+            </div>
           </div>
-          <div class="adress">
-            <h2>Adress :</h2>
-            <h3><%= @game.address %></h2>
-            <h3><%= @game.city %></h3>
-          </div>
-          <div class="date">
-            <h2>Date :</h2>
-            <h3><%= @game.date %></h3>
-          </div>
-
       </div>
-    </div>
-    <div class="col-4">
-      <div class="sidebar">
-        <h2 class="header-title">Action Control</h2>
-        <div class="controls">
-          <i class="me-2"><%= link_to "Back ",root_path %></i>
-          <i class="me-2"><%= link_to "Edit ",edit_game_path %></i>
-          <i class="me-2"><%= link_to "Delete", game_path(@game),
+      <div class="controls">
+          <%= link_to "⬅️ Back ",root_path %>
+          <%= link_to "✒️ Edit ",edit_game_path %>
+          <%# <i class="me-2"><%= link_to "Delete", game_path(@game),
               method: :delete,
               data: {confirm: "Are you sure?"},
               class: "nav-item px-1 text-danger"
-            %></i>
+            %>
         </div>
-      </div>
     </div>
   </div>
 
