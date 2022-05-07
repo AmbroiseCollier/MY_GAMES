@@ -1,9 +1,10 @@
 <div class="container">
-  <div class="row">
-    <div class="col-12">
-      <h1>Find here all the games..looking for partner</h1>
+    <div class="row">
+      <div class="col-12 text-center mt-3">
+        <h1>Find here all the games..looking for partner</h1>
+      </div>
     </div>
-  </div>
+
 
 
 <div class="main-container d-flex">
@@ -16,9 +17,9 @@
           <p>At: <%= game.address %></p>
           <p>City: <%= game.city %></p>
         </div>
-        <div class="card-footer">
-          <li><%=link_to 'More info', game_path(game), class: "nav-item px-1" %></li>
-        </div>
+          <div class="card-bottom">
+            <%=link_to 'More info', game_path(game), class: "nav-item" %>
+          </div>
       </div>
     <% end %>
   </div>
