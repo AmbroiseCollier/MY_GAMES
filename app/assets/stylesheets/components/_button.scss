@@ -7,18 +7,13 @@
   text-decoration: none;
 }
 
-.create-game-button :hover {
+.create-game-button a {
   text-decoration: none;
-  color: orange;
+  color: inherit;
 }
 
-.home-button {
-  color: black;
-  border-color: orange;
-  border-radius: 50px;
-  text-decoration: none;
-  border: 5px;
-}
+
+
 
 .find-my-game {
   color: black;
@@ -43,12 +38,20 @@
   transition: background 0.3s ease;
   font-weight: bold;
   margin-left: 50px!important;
+  text-align: center;
+  text-decoration: none;
+}
+
+li.navbar-button > a {
+  color: black;
+  text-decoration: none;
 }
 
 .navbar-search {
-  color: black;
+  color: orange;
   padding: 16px 24px;
   border-radius: 2px;
   background: lightgray;
   transition: background 0.3s ease;
+  font-weight: bold;
 }

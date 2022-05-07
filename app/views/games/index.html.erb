@@ -1,9 +1,15 @@
-<%= link_to "Find a game", new_game_path, class: "find-my-game" %>
-<% i = 0 %>
-<% @games.each do |game| %>
-<h3> Game number: <%= i += 1%></h3>
-<h3> Date of the game: <%= game.date %></h3>
-<h3>Adress of the game: <%= game.address %></h3>
-<h3>City of the game: <%= game.city %></h3>
-<h3>---------------------------------</h3>
-<% end %>
+<div class="container">
+  <div class="row">
+  <% @games.each do |game| %>
+    <div class="col-4">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title"><%= game.city %></h5>
+          <p class="card-text"><%= game.address %>.</p>
+          <a href="#" class="btn btn-primary">Find the game</a>
+      </div>
+    </div>
+  </div>
+  <% end %>
+  </div>
+</div>
