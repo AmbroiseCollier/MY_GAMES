@@ -22,12 +22,36 @@
   background: orange;
   transition: background 0.3s ease;
   font-weight: bold;
+  text-decoration: none;
+}
+
+.find-my-game:hover {
+  opacity: 1;
+  color: lightgray;
 }
 
 .navbar-button {
   color: black;
   padding: 16px 24px;
   border-radius: 2px;
+  background: orange;
+  transition: background 0.3s ease;
+  font-weight: bold;
+  margin-left: 50px!important;
+  text-align: center;
+  text-decoration: none;
+}
+
+li.navbar-button > a {
+  color: black;
+  text-decoration: none;
+}
+
+.navbar-search {
+  color: orange;
+  padding: 16px 24px;
+  border-radius: 2px;
   background: lightgray;
   transition: background 0.3s ease;
+  font-weight: bold;
 }

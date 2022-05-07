@@ -14,11 +14,14 @@
             <form class="d-flex my-2 my-lg-0">
               <input class="form-control me-2" name="city" type="search" placeholder="City" aria-label="Search" value="<%= params[:city] %>">
               <input class="form-control me-2" name="date" type="date" value="<%= params[:date] %>">
-              <button class="btn navbar-button my-2 my-sm-0" type="submit">Search</button>
+              <button class="btn navbar-search mr-2" type="submit">Search</button>
             </form>
+    </div>
 
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <li class="btn navbar-button my-2 my-sm-0" href="#">
-            <%= link_to "Create a game", new_game_path, class:"btn navbar-button my-2 my-sm-0" %>
+            <%= link_to "Create a game", new_game_path %>
           </li>
 
           <li class="nav-item dropdown">
@@ -35,6 +38,6 @@
           </li>
         <% end %>
       </ul>
-    </div>
+</div>
   </div>
 </div>
