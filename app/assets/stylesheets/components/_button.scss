@@ -7,18 +7,13 @@
   text-decoration: none;
 }
 
-.create-game-button :hover {
+.create-game-button a {
   text-decoration: none;
-  color: orange;
+  color: inherit;
 }
 
-.home-button {
-  color: black;
-  border-color: orange;
-  border-radius: 50px;
-  text-decoration: none;
-  border: 5px;
-}
+
+
 
 .find-my-game {
   color: black;

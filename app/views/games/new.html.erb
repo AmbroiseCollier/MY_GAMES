@@ -8,9 +8,11 @@
   <%# Add <% f.submit class: "create-game-button" %>
     <div class="buttons">
       <%= f.submit class:"create-game-button" %>
+      <button class= "create-game-button" href="#">
+        <%= link_to "Return to home page", root_path %>
+      </button>
     </div>
   <% end %>
-  <%= link_to "Return to home page", root_path, class: "find-my-game" %>
 
   </div>
 </div>
