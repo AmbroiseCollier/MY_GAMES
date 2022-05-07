@@ -23,6 +23,10 @@ class GamesController < ApplicationController
   def create
     @game = Game.new(game_params)
     if @game.save
+      @reservation = Reservation.create(
+        game_id: @game.id,
+        player_id: current_player.id
+      )
       redirect_to root_path
     else
       render :new
