@@ -1,15 +1,18 @@
 <div class="container">
   <div class="row">
+  <div class="col-6">
   <% @games.each do |game| %>
-    <div class="col-4">
-      <div class="card" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title"><%= game.city %></h5>
-          <p class="card-text"><%= game.address %>.</p>
-          <a href="#" class="btn btn-primary">Find the game</a>
-      </div>
+<div class="card-trip">
+  <img src="<%= game.picture_url %>" />
+  <div class="card-trip-infos">
+    <div>
+      <h2><%= game.address %></h2>
+      <p><%= game.city %></p>
+      <p><%= game.date %></p>
     </div>
   </div>
+</div>
   <% end %>
   </div>
+</div>
 </div>
