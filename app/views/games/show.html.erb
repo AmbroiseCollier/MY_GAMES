@@ -3,19 +3,26 @@
     <div class="col-8">
       <h1 class="header-title">About the game</h1>
       <div class="show-container">
-          <div class="image">
-            <img src="<%= @game.picture_url %>">
+          <img src="<%= @game.picture_url %>">
+          <div class="infos">
+            <div class="adress">
+              <div class="adress-icon">
+                <h3>📍</h3>
+              </div>
+              <div class="adress-content">
+                <p><%= @game.address %></p>
+                <p><%= @game.city %></p>
+              </div>
+            </div>
+            <div class="show-date">
+              <div class="date-icon">
+                <h3>📅</h3>
+              </div>
+              <div class="date-content">
+                <p><%= @game.date %></p>
+              </div>
+            </div>
           </div>
-          <div class="adress">
-            <h2>Adress :</h2>
-            <h3><%= @game.address %></h2>
-            <h3><%= @game.city %></h3>
-          </div>
-          <div class="show-date">
-            <h2>Date :</h2>
-            <h3><%= @game.date %></h3>
-          </div>
-
       </div>
     </div>
     <div class="col-4">

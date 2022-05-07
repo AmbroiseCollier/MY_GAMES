@@ -1,9 +1,20 @@
 .show-container {
-  background-color: greenyellow;
-  display: inline-flex;
-  justify-content: space-between;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
+.show-container > img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.infos {
+  margin: 20px 10px 0px 10px;
+  display: flex;
+  justify-content: space-around;
+}
 .controls {
   display: flex;
   flex-direction: column;
@@ -23,15 +34,34 @@
   color: black;
 }
 
-.address {
-  background-color: blue;
+.adress {
+  display: flex;
+  flex-direction: row;
+}
+
+.adress-icon {
+  padding: 5px;
+  width: 50px;
+  align-items: center;
+}
+
+.adress-content {
+  padding: 5px;
+  align-items: center;
 }
 
 .show-date {
-  background-color: yellow;
+  display: flex;
+  flex-direction: row;
 }
 
-.image {
-  background-color: red;
-  width: 150px;
+.date-icon {
+  padding: 5px;
+  width: 50px;
+  align-items: center;
+}
+
+.date-content {
+  padding: 5px;
+  align-items: center;
 }
