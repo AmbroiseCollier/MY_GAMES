@@ -1,3 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h1>Dashboard</h1>
+    </div>
+  </div>
+
+<div class="main-container d-flex">
+  <div class="row">
 <% @reservations.each do  |reservation|%>
-<%= reservation.game.city%>
-<% end %>
+      <div class="col-3 card-trip m-3" style="width: 25rem;">
+        <img src= <%=reservation.game.picture_url%> alt="Img game" style="height: 15rem;">
+        <div class="">
+          <h2>Game on: <%= reservation.game.date %></h2>
+          <p>At: <%= reservation.game.address %></p>
+          <p>City: <%= reservation.game.city %></p>
+        </div>
+        <div class="card-footer">
+          <li><%=link_to 'More info', reservation.game, class: "nav-item px-1" %></li>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
