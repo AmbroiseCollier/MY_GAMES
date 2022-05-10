@@ -26,3 +26,7 @@
 .footer .fa-heart {
   color: #D23333;
 }
+
+.content-wrapper {
+  min-height: calc(100vh - 80px - 100px);
+}

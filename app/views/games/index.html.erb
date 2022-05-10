@@ -1,25 +1,29 @@
-<div class="container">
-    <div class="row">
-      <div class="header-title">
-        <h1>Find here all the games..looking for partner</h1>
-      </div>
-    </div>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.assetsdelivery.com/compings_v2/sidorovstock/sidorovstock1903/sidorovstock190300029.jpg);">
+  <div class="header-title">
+    <h1>Find here all the games..looking for partner</h1>
+  </div>
+</div>
 
+
+<div class="container">
 
 
 <div class="main-container d-flex">
   <div class="row">
     <% @games.each do |game| %>
-      <div class="col-3 card-trip m-3" style="width: 25rem;">
-        <img src= <%=game.picture_url%> alt="Img game" style="height: 15rem;">
-        <div class="">
-          <h2>Game on: <%= game.date %></h2>
-          <p>At: <%= game.address %></p>
-          <p>City: <%= game.city %></p>
-        </div>
-          <div class="card-bottom">
-            <%=link_to 'More info', game_path(game), class: "nav-item" %>
+      <div class="col-4">
+        <div class="card-trip m-3">
+          <img src= <%=game.picture_url%> alt="Img game" style="height: 15rem;">
+          <div class="">
+            <H2><%= game.city %></H2>
+            <%  fulldate = game.date %>
+            <p><%= fulldate.strftime("%d %B %Y")  %></p>
+            <p><%= game.address %></p>
           </div>
+            <div class="card-bottom">
+              <%=link_to 'Check details', game_path(game), class: "nav-item" %>
+            </div>
+        </div>
       </div>
     <% end %>
   </div>
