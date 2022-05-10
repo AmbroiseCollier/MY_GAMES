@@ -1,7 +1,11 @@
 class PagesController < ApplicationController
+
   def home
   end
+
   def dashboard
-    @reservations = Reservation.where(player: current_player)
+    @reservations = current_player.reservations
+    @games = current_player.games
   end
+
 end

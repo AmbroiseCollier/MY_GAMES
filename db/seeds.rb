@@ -1,9 +1,32 @@
 require 'faker'
 
-#puts "Cleaning games from database..."
-#Game.destroy_all
+puts "Cleaning games from database..."
+Game.destroy_all
+Reservation.destroy_all
+Player.destroy_all
+
+puts "Creating players..."
+
+player1 = Player.create(
+  name: 'Michael',
+  last_name: 'Jordan',
+  age: '36',
+  years: '20',
+  email: 'mike@gmail.com',
+  password: 'password'
+)
+
+player2 = Player.create(
+  name: 'Kobe',
+  last_name: 'Bryant',
+  age: '36',
+  years: '20',
+  email: 'kobe@gmail.com',
+  password: 'password'
+)
 
 puts "Creating games..."
+
 
 10.times do
   images = ['https://www.courtsoftheworld.com/upload/courts/7022/0/COTW-Parc-Montsouris-1476553126.jpg','https://img.20mn.fr/D_enV1s2Q6u0Dl7cIvGPUw/830x532_playground-duperre-ixe.jpg','https://static.dezeen.com/uploads/2017/06/basket-court-pigalle-studio-architecture-public-leisure-paris-france-_dezeen_hero-b.jpg' ,'https://www.courtsoftheworld.com/upload/courts/7022/0/COTW-Parc-Montsouris-1476552999.jpg']
@@ -11,7 +34,8 @@ puts "Creating games..."
     address: "2 Rue Gazan, 75014 Paris, France",
     date: Faker::Date.in_date_period,
     city: "Paris",
-    picture_url: images.sample
+    picture_url: images.sample,
+    creator: player1
 )
   puts "Game #{game.id}"
 end
@@ -22,7 +46,9 @@ end
     address: "77-101 Quai Branly Paris 75015,France",
     date: Faker::Date.in_date_period,
     city: "Paris",
-    picture_url: images.sample
+    picture_url: images.sample,
+    creator: player2
+
 )
   puts "Game #{game.id}"
 end
@@ -33,7 +59,9 @@ end
     address: "1 Place de Port-au-Prince Paris 75013, France",
     date: Faker::Date.in_date_period,
     city: "Paris",
-    picture_url: images.sample
+    picture_url: images.sample,
+    creator: player1
+
   )
   puts "Game #{game.id}"
 

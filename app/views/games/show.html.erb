@@ -24,16 +24,40 @@
             </div>
           </div>
       </div>
+
       <div class="controls">
           <%= link_to "⬅️ Back ",root_path %>
-          <%= link_to "✒️ Edit ",edit_game_path %>
-          <%# <i class="me-2"><%= link_to "Delete", game_path(@game),
+          <% if current_player == @game.creator %>
+             <%= link_to "✒️ Edit ",edit_game_path %>
+             <%= link_to "✒️Delete", game_path(@game),
               method: :delete,
               data: {confirm: "Are you sure?"},
-              class: "nav-item px-1 text-danger"
+              class: "nav-item px-1"
             %>
-        </div>
+          <% end %>
+      </div>
     </div>
   </div>
+
+<div class="row">
+  <div class="col-8">
+    <h2>here the map</h2>
+  </div>
+
+  <div class="col-4">
+    <% if  current_player != @game.creator%>
+    <h2>Do you want to play ?</h2>
+     <%= simple_form_for [@game, @reservation] do |f| %>
+        <%= f.input :message, placeholder: "Message your rival" %>
+        <%= f.submit "Let's ball", class: "btn btn-primary" %>
+      <% end %>
+    <% end %>
+  </div>
+
+</div>
+
+
+
+
 
 </div>

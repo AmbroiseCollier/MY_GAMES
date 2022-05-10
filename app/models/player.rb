@@ -6,5 +6,6 @@ class Player < ApplicationRecord
 
   has_many :reservations
   has_many :reviews
-  has_many :games, through: :reservations
+  has_many :games
+
 end
