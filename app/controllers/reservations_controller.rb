@@ -1,4 +1,6 @@
 class ReservationsController < ApplicationController
+  before_action :find_game, only: [:edit, :update, :destroy]
+
 
   def create
     find_game
@@ -14,9 +16,13 @@ class ReservationsController < ApplicationController
 
 
   def destroy
-    @reservation = Reservation.find(params[:id])
     @reservation.destroy
     redirect_to dashboard_path
+    # this is not working yet
+  end
+
+  def update
+
   end
 
   private
@@ -28,6 +34,10 @@ class ReservationsController < ApplicationController
 
   def resa_params
     params.require(:reservation).permit(:message)
+  end
+
+  def find_reservation
+    @reservation = Reservation.find(params[:id])
   end
 
 end

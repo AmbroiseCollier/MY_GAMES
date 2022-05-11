@@ -16,8 +16,6 @@
           <p>At: <%= reservation.game.address %></p>
           <p>City: <%= reservation.game.city %></p>
           <h2>Status: <%= reservation.status %></h2>
-          <h2>Created By: <%= reservation.game.creator.name %></h2>
-          <p>Created By: <%= reservation.game.creator.email %></p>
         </div>
         <div class="card-footer nav">
           <li><%=link_to 'More info', reservation.game, class: "nav-item px-1" %></li>

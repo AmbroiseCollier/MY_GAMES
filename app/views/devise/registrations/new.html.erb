@@ -16,6 +16,14 @@
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "last_name" }%>
+    <%= f.input :years,
+                required: false,
+                autofocus: true,
+                input_html: { autocomplete: "years" }%>
+    <%= f.input :age,
+                required: false,
+                autofocus: true,
+                input_html: { autocomplete: "age" }%>
     <%= f.input :password,
                 required: true,
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),

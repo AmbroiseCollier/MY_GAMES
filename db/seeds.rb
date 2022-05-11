@@ -1,8 +1,8 @@
 require 'faker'
 
 puts "Cleaning games from database..."
-Game.destroy_all
 Reservation.destroy_all
+Game.destroy_all
 Player.destroy_all
 
 puts "Creating players..."
@@ -15,15 +15,39 @@ player1 = Player.create(
   email: 'mike@gmail.com',
   password: 'password'
 )
+puts "player #{player1.id}"
 
 player2 = Player.create(
   name: 'Kobe',
   last_name: 'Bryant',
-  age: '36',
+  age: '46',
   years: '20',
   email: 'kobe@gmail.com',
   password: 'password'
 )
+puts "player #{player2.id}"
+
+player3 = Player.create(
+  name: 'Charles',
+  last_name: 'barkley',
+  age: '56',
+  years: '50',
+  email: 'Chuck@gmail.com',
+  password: 'password'
+)
+puts "player #{player3.id}"
+
+player4 = Player.create(
+  name: 'shaquille',
+  last_name: "Oneal",
+  age: '50',
+  years: '40',
+  email: 'shaq@gmail.com',
+  password: 'password'
+)
+puts "player #{player4.id}"
+
+array = [player1, player2, player3, player4]
 
 puts "Creating games..."
 
@@ -35,7 +59,7 @@ puts "Creating games..."
     date: Faker::Date.in_date_period,
     city: "Paris",
     picture_url: images.sample,
-    creator: player1
+    creator: array.sample
 )
   puts "Game #{game.id}"
 end
@@ -47,7 +71,7 @@ end
     date: Faker::Date.in_date_period,
     city: "Paris",
     picture_url: images.sample,
-    creator: player2
+    creator: array.sample
 
 )
   puts "Game #{game.id}"
@@ -60,18 +84,10 @@ end
     date: Faker::Date.in_date_period,
     city: "Paris",
     picture_url: images.sample,
-    creator: player1
+    creator: array.sample
 
   )
   puts "Game #{game.id}"
-
-  reservation = Reservation.create(
-    game_id: game.id,
-    player_id: Player.first.id
-  )
-  puts "Reservation #{reservation.id}"
-
-
 end
 
 puts "Finished with games!"
