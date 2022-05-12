@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_07_095038) do
+ActiveRecord::Schema.define(version: 2022_05_10_192108) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,9 @@ ActiveRecord::Schema.define(version: 2022_05_07_095038) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "city"
     t.string "picture_url"
+    t.bigint "player_id"
+    t.integer "status", default: 0
+    t.index ["player_id"], name: "index_games_on_player_id"
   end
 
   create_table "players", force: :cascade do |t|
@@ -46,6 +49,7 @@ ActiveRecord::Schema.define(version: 2022_05_07_095038) do
     t.text "message"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "status", default: 0
     t.index ["game_id"], name: "index_reservations_on_game_id"
     t.index ["player_id"], name: "index_reservations_on_player_id"
   end
@@ -61,6 +65,7 @@ ActiveRecord::Schema.define(version: 2022_05_07_095038) do
     t.index ["player_id"], name: "index_reviews_on_player_id"
   end
 
+  add_foreign_key "games", "players"
   add_foreign_key "reservations", "games"
   add_foreign_key "reservations", "players"
   add_foreign_key "reviews", "games", column: "games_id"

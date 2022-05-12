@@ -12,6 +12,15 @@
               <div class="adress-content">
                 <p><%= @game.address %></p>
                 <p><%= @game.city %></p>
+                <% if  current_player == @game.creator%>
+                  <p><strong>Created by you</strong></p>
+                <% else %>
+                  <p>With: <strong><%="#{@game.creator.name} #{@game.creator.last_name}"%></strong></p>
+                  <p>Contact: <%= "#{@game.creator.email}"%></p>
+                  <p>Experience: <%="#{@game.creator.years}"%> years</p>
+                  <p>Age: <%="#{@game.creator.age}"%></p>
+                <% end %>
+
               </div>
             </div>
             <div class="show-date">
@@ -24,16 +33,61 @@
             </div>
           </div>
       </div>
+
       <div class="controls">
           <%= link_to "⬅️ Back ",root_path %>
-          <%= link_to "✒️ Edit ",edit_game_path %>
-          <%# <i class="me-2"><%= link_to "Delete", game_path(@game),
+          <% if current_player == @game.creator %>
+             <%= link_to "✒️ Edit ",edit_game_path %>
+             <%= link_to "✒️Delete", game_path(@game),
               method: :delete,
               data: {confirm: "Are you sure?"},
-              class: "nav-item px-1 text-danger"
+              class: "nav-item px-1"
             %>
-        </div>
+          <% end %>
+      </div>
     </div>
   </div>
+
+<div class="row">
+  <div class="col-8">
+      <% if  current_player == @game.creator%>
+      <h2>Interested people</h2>
+      <% @reservations.each do |reservation| %>
+        <% player = Player.find(reservation.player_id) %>
+        <div class="card">
+          <div class="card-product-infos">
+            <h2><%= player.name %> <%= player.last_name %></h2>
+            <h2><%= player.email %></h2>
+            <p>Age: <%=player.age%> | Expirence: <%=player.years%></p>
+            <p><%= reservation.message %></p>
+          </div>
+          <div class="nav" data-controller="reservation">
+            <li ><%=link_to 'Accept', '#', class: "nav-item px-1", remote: true, data: { controller: 'remote', action:"click->reservation#accept" }  %></li>
+            <li><%=link_to 'Cancel', '#',  method: :delete, data: { confirm: "Are you sure?" }, class: "nav-item px-1" %></li>
+          </div>
+        </div>
+        <% end %>
+      <% else %>
+    <h2>here the map</h2>
+     <% end %>
+  </div>
+
+  <div class="col-4">
+    <% if  current_player != @game.creator%>
+      <h2>Do you want to play ?</h2>
+      <%= simple_form_for [@game, @reservation] do |f| %>
+        <%= f.input :message, placeholder: "Message your rival" %>
+        <%= f.submit "Let's ball", class: "btn btn-primary" %>
+        <% end %>
+    <% end %>
+
+
+  </div>
+
+</div>
+
+
+
+
 
 </div>
