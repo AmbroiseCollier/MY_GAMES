@@ -23,7 +23,6 @@ ActiveRecord::Schema.define(version: 2022_05_10_192108) do
     t.string "city"
     t.string "picture_url"
     t.bigint "player_id"
-    t.integer "status", default: 0
     t.index ["player_id"], name: "index_games_on_player_id"
   end
 
