@@ -61,8 +61,8 @@
             <p>Age: <%=player.age%> | Expirence: <%=player.years%></p>
             <p><%= reservation.message %></p>
           </div>
-          <div class="nav">
-            <li><%=link_to 'Accept', '#', class: "nav-item px-1" %></li>
+          <div class="nav" data-controller="reservation">
+            <li ><%=link_to 'Accept', '#', class: "nav-item px-1", remote: true, data: { controller: 'remote', action:"click->reservation#accept" }  %></li>
             <li><%=link_to 'Cancel', '#',  method: :delete, data: { confirm: "Are you sure?" }, class: "nav-item px-1" %></li>
           </div>
         </div>
