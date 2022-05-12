@@ -1,6 +1,4 @@
 class ReservationsController < ApplicationController
-  before_action :find_game, only: [:edit, :update, :destroy]
-
 
   def create
     find_game
@@ -22,15 +20,21 @@ class ReservationsController < ApplicationController
   end
 
   def update
-
+    find_reservation
+    @status = params[:status]
+    if @status == 'accepted'
+      @reservation.accepted!
+      @reservations_not = @reservation.game.reservations.not_accepted
+      @reservations_not.each { |resa| resa.rejected! }
+    else @status == 'rejected'
+      @reservation.rejected!
+    end
+    redirect_to game_path(@reservation.game)
   end
+
 
   private
 
-
-  def find_game
-    @game = Game.find(params[:game_id])
-  end
 
   def resa_params
     params.require(:reservation).permit(:message)
@@ -38,6 +42,10 @@ class ReservationsController < ApplicationController
 
   def find_reservation
     @reservation = Reservation.find(params[:id])
+  end
+
+  def find_game
+    @game = Game.find(params[:game_id])
   end
 
 end
