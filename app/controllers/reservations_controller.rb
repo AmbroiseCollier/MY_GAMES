@@ -14,6 +14,7 @@ class ReservationsController < ApplicationController
 
 
   def destroy
+    find_reservation
     @reservation.destroy
     redirect_to dashboard_path
     # this is not working yet
