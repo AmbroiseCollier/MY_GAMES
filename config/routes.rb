@@ -8,6 +8,6 @@ Rails.application.routes.draw do
 
   resources :games do
     resources :reservations, only: [:new,:create]
-    resources :review, only: [:new,:create]
+    resources :reviews, only: [:create], except: [:index, :show]
   end
 end

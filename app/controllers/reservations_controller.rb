@@ -4,7 +4,7 @@ class ReservationsController < ApplicationController
     find_game
     @reservation = Reservation.new(resa_params)
     @reservation.player_id = current_player.id
-    @reservation.game_id = @game.id
+    @reservation.game = @game
     if @reservation.save
       redirect_to dashboard_path
     else

@@ -1,21 +1,15 @@
 class ReviewsController < ApplicationController
-  before_action :find_game,
-
-  def index
-    @reviews = Review.all
-  end
 
   def create
+    find_game
     @review = Review.new(review_params)
-    @review.player_id = current_player.id
-    @reservation.game_id = @game.id
-    if @reservation.save
+    @review.game = @game
+    @review.player= current_player
+    if @review.save
       redirect_to game_path(@game)
     else
       render 'games/show'
     end
-
-
   end
 
   private
