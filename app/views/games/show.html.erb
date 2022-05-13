@@ -98,8 +98,8 @@
         <% else %>
           <% @game.reviews.each do |review| %>
           <article><%= review.content %>
-          <p>By:</p></article>
-          <p>On: </p>
+          <p>By <%= review.player.name  %>:</p></article>
+          <p>On: <%= time_ago_in_words review.created_at %> </p>
           <% end %>
         <% end %>
 
