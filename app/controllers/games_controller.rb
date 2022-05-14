@@ -6,13 +6,16 @@ class GamesController < ApplicationController
     @city = params[:city]
     @date = params[:date]
     if (@city.present? && @date.present?)  # filter by city and date
-     @games = Game.where(city: @city, date: @date)
+     results = Game.where(city: @city, date: @date)
+     @games = results.where.not(player_id: current_player)
     elsif ((@city.present?) && ((@date.present? == false) && true))
-      @games = Game.where("city LIKE ?","%#{params[:city]}%")
+      results = Game.where("city LIKE ?","%#{params[:city]}%")
+      @games = results.where.not(player_id: current_player)
     elsif ((@date.present?) && ((@city.present? == false) && true))
-      @games = Game.where(date: params[:date])
+      results = Game.where(date: params[:date])
+      @games = results.where.not(player_id: current_player)
     else
-      @games = Game.all
+      @games = Game.where.not(player_id: current_player)
     end
   end
 
