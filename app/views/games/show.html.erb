@@ -20,61 +20,57 @@
                   <p>Experience: <%="#{@game.creator.years}"%> years</p>
                   <p>Age: <%="#{@game.creator.age}"%></p>
                 <% end %>
-
               </div>
             </div>
-            <div class="show-date">
-              <div class="date-icon">
-                <h3>📅</h3>
-              </div>
-              <div class="date-content">
-                <p><%= @game.date %></p>
-              </div>
+          <div class="show-date">
+            <div class="date-icon">
+              <h3>📅</h3>
+            </div>
+            <div class="date-content">
+              <p><%= @game.date %></p>
             </div>
           </div>
+        </div>
       </div>
-
       <div class="controls">
-          <%= link_to "⬅️ Back ",root_path %>
-          <% if current_player == @game.creator %>
-             <%= link_to "✒️ Edit ",edit_game_path(@game) %>
-             <%= link_to "✒️Delete", game_path(@game),
-              method: :delete,
-              data: {confirm: "Are you sure?"},
-              class: "nav-item px-1"
-            %>
-          <% end %>
+        <%= link_to "⬅️ Back ",root_path %>
+        <% if current_player == @game.creator %>
+            <%= link_to "✒️ Edit ",edit_game_path(@game) %>
+            <%= link_to "✒️ Delete", game_path(@game),
+            method: :delete,
+            data: {confirm: "Are you sure?"},
+            class: "nav-item px-1"
+          %>
+        <% end %>
       </div>
     </div>
   </div>
 
   <div class="row">
-    <div class="col-8">
-        <% if  current_player == @game.creator%>
+    <div class="list col-12">
+      <% if  current_player == @game.creator%>
         <h2>Interested people</h2>
         <% @reservations.each do |reservation| %>
           <% player = Player.find(reservation.player_id) %>
-          <div class="card">
+          <div class="show-card">
             <div class="card-product-infos">
               <h2><%= player.name %> <%= player.last_name %></h2>
               <h2><%= player.email %></h2>
-              <p>Age: <%=player.age%> | Expirence: <%=player.years%></p>
-              <p><%= reservation.message %></p>
+              <p>Age: <%=player.age%> | Experience: <%=player.years%> years</p>
+              <i><%= reservation.message %></i>
             </div>
-            <div class="nav">
+            <div class="card-nav">
               <% if reservation.accepted? %>
                 <h2>Reservation accepted</h2>
               <% elsif reservation.rejected? %>
-                  <p><strong>Sorry bro, you have been ditched!</strong></p>
+                <p><strong>Sorry bro, you have been ditched!</strong></p>
               <% else %>
-                <li ><%=link_to 'Accept', reservation_path(reservation, status: :accepted), method: :patch ,  class: "nav-item px-1" %></li>
-                <li><%=link_to 'Cancel', reservation_path(reservation, status: :rejected),  method: :patch, data: { confirm: "Are you sure?" }, class: "nav-item px-1" %></li>
+                <li><%=link_to 'Accept', reservation_path(reservation, status: :accepted), method: :patch ,  class: "accept-button nav-item px-1" %></li>
+                <li><%=link_to 'Cancel', reservation_path(reservation, status: :rejected),  method: :patch, data: { confirm: "Are you sure?" }, class: "reject-button nav-item px-1" %></li>
               <% end %>
             </div>
           </div>
-          <% end %>
-        <% else %>
-      <h2>here the map</h2>
+        <% end %>
       <% end %>
     </div>
 
@@ -84,22 +80,21 @@
         <%= simple_form_for([@game, @reservation]) do |f| %>
           <%= f.input :message, placeholder: "Write your rival" %>
           <%= f.submit "Let's ball", class: "btn btn-primary" %>
-          <% end %>
+        <% end %>
       <% end %>
     </div>
 
   <div class="row">
-    <div class=" col">
+    <div class="col">
       <div id="reviews">
-        <h2> <%= pluralize @game.reviews.size, "review" %>
-        </h2>
+        <h2> <%= pluralize @game.reviews.size, "review" %></h2>
         <% if @game.reviews.blank? %>
-          <p>Be the first to leave a review for <strong><%=  %></strong></p>
+          <p>Be the first to leave a review for this game</p>
         <% else %>
           <% @game.reviews.each do |review| %>
-          <article><%= review.content %>
-          <p>By <%= review.player.name  %>:</p></article>
-          <p>On: <%= time_ago_in_words review.created_at %> </p>
+            <article><%= review.content %>
+            <p>By <%= review.player.name  %>:</p></article>
+            <p>On: <%= time_ago_in_words review.created_at %> </p>
           <% end %>
         <% end %>
 
@@ -111,5 +106,4 @@
       </div>
     </div>
   </div>
-
 </div>

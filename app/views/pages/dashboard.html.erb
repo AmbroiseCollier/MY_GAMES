@@ -5,21 +5,22 @@
     </div>
   </div>
 
-<div class="main-container d-flex">
-  <div class="row">
-  <h2>My reservations</h2>
-<% @reservations.each do  |reservation|%>
-      <div class="col-3 card-trip m-3" style="width: 25rem;">
-        <img src= <%=reservation.game.picture_url%> alt="Img game" style="height: 15rem;">
-        <div class="">
-          <h2>Game on: <%= reservation.game.date %></h2>
-          <p>At: <%= reservation.game.address %></p>
-          <p>City: <%= reservation.game.city %></p>
-          <h2>Status: <%= reservation.status %></h2>
-        </div>
-        <div class="card-footer nav">
-          <li><%=link_to 'More info', reservation.game, class: "nav-item px-1" %></li>
-          <li><%=link_to 'Cancel', reservation_path(reservation),  method: :delete, data: { confirm: "Are you sure?" }, class: "nav-item px-1" %></li>
+  <div class="main-container d-flex">
+    <div class="row">
+      <h2>My reservations</h2>
+      <% @reservations.each do  |reservation|%>
+        <div class="col-3 card-trip m-3" style="width: 25rem;">
+          <img src= <%=reservation.game.picture_url%> alt="Img game" style="height: 15rem;">
+          <div class="">
+            <h2>Game on: <%= reservation.game.date %></h2>
+            <p>At: <%= reservation.game.address %></p>
+            <p>City: <%= reservation.game.city %></p>
+            <h2>Status: <%= reservation.status %></h2>
+          </div>
+          <div class="card-footer nav">
+            <li><%=link_to 'More info', reservation.game, class: "nav-item px-1" %></li>
+            <li><%=link_to 'Cancel', reservation_path(reservation),  method: :delete, data: { confirm: "Are you sure?" }, class: "nav-item px-1" %></li>
+          </div>
         </div>
       <% end %>
 

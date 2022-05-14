@@ -55,3 +55,26 @@ li.navbar-button > a {
   transition: background 0.3s ease;
   font-weight: bold;
 }
+
+.accept-button {
+  background-color: green;
+  margin-right: 20px;
+  padding: 10px 10px;
+  border-radius: 10px;
+}
+
+.accept-button a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+.reject-button {
+  background-color: red;
+}
+
+.reject-button a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
