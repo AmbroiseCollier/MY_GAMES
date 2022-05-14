@@ -38,7 +38,7 @@
 
     <div class="row">
       <h2>My created games</h2>
-      <div class="cards-dashboard d-flex">
+      <div class="cards-dashboard d-flex justify-content-around">
         <% @games.each do  |createdgame|%>
           <div class="card-trip-image-dashboard col-3 m-3" style="background-image: url(<%=createdgame.picture_url%>)"">
             <div class="card-trip-dashboard-infos">
