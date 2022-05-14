@@ -4,9 +4,10 @@ Rails.application.routes.draw do
   get "dashboard", to: "pages#dashboard"
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :reservations, only: [:update, :destroy]
 
   resources :games do
-    resources :reservations, only: [:new,:create, :destroy]
-    resources :review, only: [:new,:create]
+    resources :reservations, only: [:new,:create]
+    resources :reviews, only: [:create], except: [:index, :show]
   end
 end
