@@ -108,6 +108,7 @@ transform: translate(0, -5px);
   align-items: center;
   justify-content: space-between;
   margin: 20px;
+  padding: 10px;
 }
 
 .show-card h2 {
@@ -121,5 +122,10 @@ transform: translate(0, -5px);
   line-height: 1.4;
   opacity: .7;
   margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.show-message {
+  border-top: solid gray 2px;
   margin-top: 8px;
 }

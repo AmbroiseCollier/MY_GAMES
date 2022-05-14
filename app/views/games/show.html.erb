@@ -57,7 +57,10 @@
               <h2><%= player.name %> <%= player.last_name %></h2>
               <h2><%= player.email %></h2>
               <p>Age: <%=player.age%> | Experience: <%=player.years%> years</p>
-              <i><%= reservation.message %></i>
+              <div class="show-message">
+                <p><%= player.name %> send this message :</p>
+                <i><%= reservation.message %></i>
+              </div>
             </div>
             <div class="card-nav">
               <% if reservation.accepted? %>
