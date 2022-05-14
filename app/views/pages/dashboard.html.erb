@@ -10,10 +10,8 @@
       <h2>My reservations</h2>
       <div class="cards-dashboard d-flex justify-content-between">
         <% @reservations.each do  |reservation|%>
-
           <div class="card-trip-image-dashboard col-3 m-3" style="background-image: url(<%=reservation.game.picture_url%>)"">
             <div class="card-trip-dashboard-infos">
-              <%# <h2>Game on: <%= reservation.game.date %></h2>
               <%  fulldate = reservation.game.date %>
               <H1><%= fulldate.strftime("%d %B %Y")  %></H1>
               <H2><%= reservation.game.address %></H2>
