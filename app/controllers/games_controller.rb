@@ -35,7 +35,12 @@ class GamesController < ApplicationController
 
 
   def show
-    @reservations = @game.reservations
+    @reservations_applicants = @game.reservations
+    if (@reservations_applicants.where(status: "accepted").empty?)
+      @reservations = @game.reservations.where(status: "pending")
+    else
+      @reservations = @game.reservations.where(status: "accepted")
+    end
     @reservation = Reservation.new
     @review = Review.new
   end
