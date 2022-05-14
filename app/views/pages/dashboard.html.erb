@@ -19,7 +19,7 @@
         </div>
         <div class="card-footer nav">
           <li><%=link_to 'More info', reservation.game, class: "nav-item px-1" %></li>
-          <li><%=link_to 'Cancel', reservation.game,  method: :delete, data: { confirm: "Are you sure?" }, class: "nav-item px-1" %></li>
+          <li><%=link_to 'Cancel', reservation_path(reservation),  method: :delete, data: { confirm: "Are you sure?" }, class: "nav-item px-1" %></li>
         </div>
       </div>
     <% end %>

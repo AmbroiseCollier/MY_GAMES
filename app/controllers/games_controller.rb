@@ -34,6 +34,7 @@ class GamesController < ApplicationController
   def show
     @reservations = @game.reservations
     @reservation = Reservation.new
+    @review = Review.new
   end
 
   def edit
