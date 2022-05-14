@@ -52,6 +52,42 @@
   margin-bottom: 5px;
 }
 
+.show-card {
+  overflow: hidden;
+  height: 120px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding: 80px 20px;
+}
+
+.show-card h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.show-card p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.show-message {
+  border-top: solid gray 2px;
+  margin-top: 8px;
+}
+
+.card-nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
 
 // .card-trip-image:hover {
 //     opacity: 0.8;
@@ -63,39 +99,39 @@
 // }
 
 
-  .card-trip-image:hover {
-        filter: grayscale(0.9);
-    -webkit-filter: grayscale(0.9);
+.card-trip-image:hover {
+  filter: grayscale(0.9);
+  -webkit-filter: grayscale(0.9);
 
-    .card-trip-info {
-      transform: translateY(-80px);
-      text-align: center;
-      background-color: transparent;
-      opacity: 1;
-    }
+  .card-trip-info {
+    transform: translateY(-80px);
+    text-align: center;
+    background-color: transparent;
+    opacity: 1;
+  }
 
-    .card-trip-info p {
-      background-color: transparent;
-      opacity: 1;
-      color: white;
+  .card-trip-info p {
+    background-color: transparent;
+    opacity: 1;
+    color: white;
   }
 
   .card-trip-info H2 {
     background-color: transparent;
     opacity: 1;
     color: white;
-}
+  }
 
   .card-trip-info H1 {
     display: block;
     color: white;
     font-weight: bold;
   }
-  }
+}
 
-  .card-trip-info H1 {
-    display: none;
-  }
+.card-trip-info H1 {
+  display: none;
+}
 // .card-trip-info H1 {
 //   display: hidden;
 // }

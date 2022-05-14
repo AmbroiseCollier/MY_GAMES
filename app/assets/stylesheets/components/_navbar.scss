@@ -4,9 +4,6 @@
   opacity: 0.8;
 }
 
-.navbar-lewagon .navbar-collapse {
-    
-}
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
@@ -15,4 +12,17 @@
 // hauteur de la navbar
 .navbar.navbar-expand-sm.navbar-light.navbar-lewagon {
   height: 80px;
+}
+
+.form-control {
+  border-radius: 30px;
+}
+
+#navbar-search {
+  border-radius: 30px;
+  color: black;
+}
+
+.collapse {
+  flex-grow: 0;
 }

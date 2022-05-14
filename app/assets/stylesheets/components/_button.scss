@@ -55,3 +55,39 @@ li.navbar-button > a {
   transition: background 0.3s ease;
   font-weight: bold;
 }
+
+#accept-btn {
+  text-decoration: none;
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: rgba(31, 221, 136, 0.7);
+  transition: background 0.3s ease;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 160px;
+  text-align: center;
+}
+
+#accept-btn a:hover {
+  background: #1BCB7F;
+  color: white;
+}
+
+#reject-btn {
+  text-decoration: none;
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: rgba(253, 17, 22, 0.7);
+  transition: background 0.3s ease;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 160px;
+  text-align: center;
+}
+
+#reject-btn a:hover {
+  background: rgba(253, 17, 22, 1);
+  color: white;
+}
