@@ -5,13 +5,12 @@
     </div>
   </div>
 
-  <div class="main-container">
+  <div class="container">
     <div class="row">
       <h2>My reservations</h2>
-      <div class="cards-dashboard d-flex justify-content-between">
+      <div class="cards-dashboard d-flex justify-content-around ">
         <% @reservations.each do  |reservation|%>
-
-          <div class="card-trip-image-dashboard col-3 m-3" style="background-image: url(<%=reservation.game.picture_url%>)"">
+          <div class="col-4 m-3 card-trip-image-dashboard " style="background-image: url(<%=reservation.game.picture_url%>)"">
             <div class="card-trip-dashboard-infos">
               <%# <h2>Game on: <%= reservation.game.date %></h2>
               <%  fulldate = reservation.game.date %>

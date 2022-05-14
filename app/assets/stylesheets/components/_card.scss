@@ -169,6 +169,9 @@
 //   // -webkit-box-reflect:below 2px linear-gradient(transparent, transparent, #0004);
 // }
 
+.cards-dashboard {
+flex-wrap: wrap;
+}
 
 
 .card-trip-image-dashboard {
@@ -182,7 +185,6 @@
   background-position: center;
   position: relative;
   display: flex;
-  justify-content: space-between;
 }
 
 .card-trip-dashboard-infos {
