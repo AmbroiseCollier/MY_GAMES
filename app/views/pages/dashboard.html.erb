@@ -5,39 +5,55 @@
     </div>
   </div>
 
-  <div class="main-container d-flex">
+  <div class="main-container">
     <div class="row">
       <h2>My reservations</h2>
-      <% @reservations.each do  |reservation|%>
-        <div class="col-3 card-trip m-3" style="width: 25rem;">
-          <img src= <%=reservation.game.picture_url%> alt="Img game" style="height: 15rem;">
-          <div class="">
-            <h2>Game on: <%= reservation.game.date %></h2>
-            <p>At: <%= reservation.game.address %></p>
-            <p>City: <%= reservation.game.city %></p>
-            <h2>Status: <%= reservation.status %></h2>
-          </div>
-          <div class="card-footer nav">
-            <li><%=link_to 'More info', reservation.game, class: "nav-item px-1" %></li>
-            <li><%=link_to 'Cancel', reservation_path(reservation),  method: :delete, data: { confirm: "Are you sure?" }, class: "nav-item px-1" %></li>
-          </div>
-        </div>
-      <% end %>
+      <div class="cards-dashboard d-flex justify-content-between">
+        <% @reservations.each do  |reservation|%>
 
+          <div class="card-trip-image-dashboard col-3 m-3" style="background-image: url(<%=reservation.game.picture_url%>)"">
+            <div class="card-trip-dashboard-infos">
+              <%# <h2>Game on: <%= reservation.game.date %></h2>
+              <%  fulldate = reservation.game.date %>
+              <H1><%= fulldate.strftime("%d %B %Y")  %></H1>
+              <H2><%= reservation.game.address %></H2>
+              <p><%= reservation.game.city %></p>
+              <div class="card-dashboard-footer">
+                <%=link_to 'More info', reservation.game, class: "nav-item px-1" %>
+                <%=link_to 'Cancel', reservation_path(reservation),  method: :delete, data: { confirm: "Are you sure?" }, class: "nav-item px-1" %>
+              </div>
+            </div>
+            <div class="card-status">
+              <% if reservation.status == "pending" %>
+                <h3 class="pending">Status: <%= reservation.status %></h3>
+              <% elsif reservation.status == "accepted" %>
+                <h3 class="accepted">Status: <%= reservation.status %></h3>
+              <% elsif reservation.status == "rejected" %>
+                <h3 class="rejected">Status: <%= reservation.status %></h3>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="row">
       <h2>My created games</h2>
-      <% @games.each do  |createdgame|%>
-        <div class="col-3 card-trip m-3" style="width: 25rem;">
-          <img src= <%=createdgame.picture_url%> alt="Img game" style="height: 15rem;">
-          <div class="">
-            <h2>Game on: <%= createdgame.date %></h2>
-            <p>At: <%= createdgame.address %></p>
-            <p>City: <%= createdgame.city %></p>
+      <div class="cards-dashboard d-flex">
+        <% @games.each do  |createdgame|%>
+          <div class="card-trip-image-dashboard col-3 m-3" style="background-image: url(<%=createdgame.picture_url%>)"">
+            <div class="card-trip-dashboard-infos">
+              <h1><%= createdgame.date %></h1>
+              <H2><%= createdgame.address %></H2>
+              <p><%= createdgame.city %></p>
+              <div class="card-dashboard-footer">
+                <%=link_to 'More info', game_path(createdgame), class: "nav-item px-1" %>
+              </div>
+            </div>
           </div>
-          <div class="card-footer">
-            <li><%=link_to 'More info', game_path(createdgame), class: "nav-item px-1" %></li>
-          </div>
+        <% end %>
         </div>
-      <% end %>
+
     </div>
   </div>
 </div>

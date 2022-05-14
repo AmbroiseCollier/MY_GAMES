@@ -1,10 +1,10 @@
-// .card-trip {
-//   overflow: hidden;
-//   background-color: transparent;
-//   opacity: 0.8;
-//   border-radius: 10px;
-//   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
-// }
+.card-trip {
+  overflow: hidden;
+  background-color: transparent;
+  opacity: 0.8;
+  border-radius: 10px;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+}
 
 .card-trip-image {
   width: 100%;
@@ -169,3 +169,154 @@
 //   opacity: 1;
 //   // -webkit-box-reflect:below 2px linear-gradient(transparent, transparent, #0004);
 // }
+
+
+
+.card-trip-image-dashboard {
+  overflow: hidden;
+  background-color: transparent;
+  opacity: 0.8;
+  border-radius: 10px;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+  height: 300px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-trip-dashboard-infos {
+  background-color: lightgrey;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding-left: 10px;
+  font-weight: bold;
+  font-size: 14px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.card-dashboard-footer {
+  display: none;
+}
+
+.card-footer nav {
+  // background-color: lightgrey;
+  // position: absolute;
+  // bottom: 0.5;
+  // left: 0;
+  // width: 100%;
+  // display: none;
+  position: absolute;
+}
+
+.card-status {
+  background-color: lightgrey;
+  position: absolute;
+  bottom: 0.5;
+  left: 0;
+  width: 100%;
+  padding-left: 10px;
+  font-weight: bold;
+  font-size: 8px;
+}
+
+
+.card-trip-dashboard-infos h2 {
+  display: none;
+}
+
+.card-trip-image-dashboard > img {
+  background-size: cover;
+}
+
+.card-trip-dashboard-infos > H1 {
+  font-weight: bold;
+  font-size: 16px;
+  padding-top: 10px;
+}
+
+.card-trip-dashboard-infos > p {
+  font-size: 16px;
+}
+
+
+
+
+.card-trip-image-dashboard:hover {
+  filter: grayscale(1.3);
+  -webkit-filter: grayscale(1.3);
+
+   .card-trip-dashboard-infos {
+     background-color: transparent;
+     transform: translateY(-110px);
+     text-align: center;
+     opacity: 1;
+     color: white;
+     font-weight: bold;
+   }
+
+   .card-trip-dashboard-infos h2 {
+   display: block;
+   font-size: bold;
+   font-size: 16px;
+   color: white;
+   background-color: transparent;
+   }
+
+   .card-trip-dashboard-infos h1 {
+    display: block;
+    font-size: bold;
+    font-size: 18px;
+    color: white;
+    font-size: bold;
+    background-color: transparent;
+    }
+
+    .card-trip-dashboard-infos p {
+      display: block;
+      font-size: bold;
+      font-size: 18px;
+      color: white;
+      font-size: bold;
+      background-color: transparent;
+      }
+
+
+      .card-dashboard-footer {
+        display: block;
+        text-decoration: none;
+        font-size: 20px;
+        font-weight: bolder;
+        color: black;
+      }
+      .card-dashboard-footer a {
+        color: black;
+}
+      .card-dashboard-footer:hover {
+      color: white;
+}
+}
+
+
+
+
+.pending {
+  color: blue
+}
+
+.accepted {
+  color: green
+}
+
+
+.rejected {
+  color: red
+}
+
+.disabled {
+  pointer-events: none;
+}
