@@ -64,9 +64,9 @@
             </div>
             <div class="card-nav">
               <% if reservation.accepted? %>
-                <h2>Reservation accepted</h2>
+                <h2>Reservation accepted 👍</h2>
               <% elsif reservation.rejected? %>
-                <p><strong>Sorry bro, you have been ditched!</strong></p>
+                <p><strong>Sorry bro, you have been ditched! 👎</strong></p>
               <% else %>
                 <%=link_to 'Accept', reservation_path(reservation, status: :accepted), method: :patch ,  class: "nav-item px-1", id:"accept-btn" %>
                 <%=link_to 'Cancel', reservation_path(reservation, status: :rejected),  method: :patch, data: { confirm: "Are you sure?" }, class: "nav-item px-1", id:"reject-btn" %>
@@ -77,23 +77,23 @@
       <% end %>
     </div>
 
-    <% if  current_player != @game.creator%>
+    <% if  current_player != @game.creator %>
       <div class="apply-form col-4">
-        <h2>Do <strong>you</strong> want to play, young blodd ?</h2>
+        <h2>Do <strong>you</strong> want to play, young blood ?</h2>
         <%= simple_form_for([@game, @reservation]) do |f| %>
           <%= f.input :message, placeholder: "Write your rival a message, and please feel free to trashtalk like Gary Payton." %>
-          <%= f.submit "Let's ball boi", class: "create-game-button" %>
+          <%= f.submit "Participate", class: "create-game-button" %>
         <% end %>
       </div>
     <% end %>
-
+  </div>
 
   <div class="row">
     <div class="col">
+      <h2 class="header-title">Comments</h2>
       <div id="reviews">
-        <h2> <%= pluralize @game.reviews.size, "review" %></h2>
         <% if @game.reviews.blank? %>
-          <p>Be the first to leave a review for this game</p>
+          <p>Ask a question or leave a comment to <%= @game.creator.name %></p>
         <% else %>
           <% @game.reviews.each do |review| %>
             <div class="review">
@@ -106,8 +106,7 @@
 
         <%= simple_form_for([ @game, @review ]) do |f| %>
           <%= f.input :content, placeholder: "Share your thoughts...and post something " %>
-          <%= f.input :rating, collection: Review::RATING %>
-          <%= f.submit "Review", class: "create-game-button" %>
+          <%= f.submit "Post", class: "create-game-button" %>
         <% end %>
       </div>
     </div>
