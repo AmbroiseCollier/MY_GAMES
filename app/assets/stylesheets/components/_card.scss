@@ -60,7 +60,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 20px;
+  margin-bottom: 20px;
   padding: 80px 20px;
 }
 
@@ -81,6 +81,12 @@
 .show-message {
   border-top: solid gray 2px;
   margin-top: 8px;
+}
+
+.card-nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 // .card-trip-image:hover {

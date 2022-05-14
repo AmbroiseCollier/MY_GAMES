@@ -49,12 +49,12 @@
   <div class="row">
     <div class="list col-12">
       <% if  current_player == @game.creator%>
-        <h2>Interested people</h2>
+        <h2 class="header-title">Interested people</h2>
         <% @reservations.each do |reservation| %>
           <% player = Player.find(reservation.player_id) %>
           <div class="show-card">
             <div class="card-product-infos">
-              <h2><%= player.name %> <%= player.last_name %></h2>
+              <h2> <%= player.last_name %></h2>
               <p>Email :<%= player.email %></p>
               <p>Age: <%=player.age%> | Experience: <%=player.years%> years</p>
               <div class="show-message">
@@ -68,8 +68,8 @@
               <% elsif reservation.rejected? %>
                 <p><strong>Sorry bro, you have been ditched!</strong></p>
               <% else %>
-                <li><%=link_to 'Accept', reservation_path(reservation, status: :accepted), method: :patch ,  class: "accept-button nav-item px-1" %></li>
-                <li><%=link_to 'Cancel', reservation_path(reservation, status: :rejected),  method: :patch, data: { confirm: "Are you sure?" }, class: "reject-button nav-item px-1" %></li>
+                <%=link_to 'Accept', reservation_path(reservation, status: :accepted), method: :patch ,  class: "nav-item px-1", id:"accept-btn" %>
+                <%=link_to 'Cancel', reservation_path(reservation, status: :rejected),  method: :patch, data: { confirm: "Are you sure?" }, class: "nav-item px-1", id:"reject-btn" %>
               <% end %>
             </div>
           </div>
@@ -77,15 +77,16 @@
       <% end %>
     </div>
 
-    <div class="col-4">
-      <% if  current_player != @game.creator%>
-        <h2>Do you want to play ?</h2>
+    <% if  current_player != @game.creator%>
+      <div class="apply-form col-4">
+        <h2>Do <strong>you</strong> want to play, young blodd ?</h2>
         <%= simple_form_for([@game, @reservation]) do |f| %>
-          <%= f.input :message, placeholder: "Write your rival" %>
-          <%= f.submit "Let's ball", class: "create-game-button" %>
+          <%= f.input :message, placeholder: "Write your rival a message, and please feel free to trashtalk like Gary Payton." %>
+          <%= f.submit "Let's ball boi", class: "create-game-button" %>
         <% end %>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
+
 
   <div class="row">
     <div class="col">

@@ -56,25 +56,38 @@ li.navbar-button > a {
   font-weight: bold;
 }
 
-.accept-button {
-  background-color: green;
-  margin-right: 20px;
-  padding: 10px 10px;
-  border-radius: 10px;
-}
-
-.accept-button a {
+#accept-btn {
   text-decoration: none;
   color: white;
-  font-weight: bold;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: rgba(31, 221, 136, 0.7);
+  transition: background 0.3s ease;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 160px;
+  text-align: center;
 }
 
-.reject-button {
-  background-color: red;
+#accept-btn a:hover {
+  background: #1BCB7F;
+  color: white;
 }
 
-.reject-button a {
+#reject-btn {
   text-decoration: none;
   color: white;
-  font-weight: bold;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: rgba(253, 17, 22, 0.7);
+  transition: background 0.3s ease;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 160px;
+  text-align: center;
+}
+
+#reject-btn a:hover {
+  background: rgba(253, 17, 22, 1);
+  color: white;
 }
