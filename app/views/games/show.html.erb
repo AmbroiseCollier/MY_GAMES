@@ -102,8 +102,13 @@
             <p id="review-date">On: <%= time_ago_in_words review.created_at %> </p>
           </div>
         <% end %>
+
+        <% if current_player != @game.creator %>
+          <p><strong>Ask a question or leave a comment to <%= @game.creator.name %></strong></p>
+        <% else %>
+          <p><strong>Leave informations or comments to your rivals</strong></p>
+        <% end %>
         <%= simple_form_for([ @game, @review ]) do |f| %>
-        <p><strong>Ask a question or leave a comment to <%= @game.creator.name %></strong></p>
           <%= f.input :content, placeholder: "Share your thoughts...and post something " %>
           <%= f.submit "Post", class: "create-game-button" %>
         <% end %>
