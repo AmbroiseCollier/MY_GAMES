@@ -82,7 +82,7 @@
         <h2>Do <strong>you</strong> want to play, young blood ?</h2>
         <%= simple_form_for([@game, @reservation]) do |f| %>
           <%= f.input :message, placeholder: "Write your rival a message, and please feel free to trashtalk like Gary Payton." %>
-          <%= f.submit "Let's ball boi", class: "create-game-button" %>
+          <%= f.submit "Participate", class: "create-game-button" %>
         <% end %>
       </div>
     <% end %>
@@ -90,7 +90,7 @@
 
   <div class="row">
     <div class="col">
-      <h2 class="header-title">Reviews</h2>
+      <h2 class="header-title">Comments</h2>
       <div id="reviews">
         <% if @game.reviews.blank? %>
           <p>Ask a question or leave a comment to <%= @game.creator.name %></p>
