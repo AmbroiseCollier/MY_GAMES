@@ -12,7 +12,6 @@
         <% @reservations.each do  |reservation|%>
           <div class="col-4 m-3 card-trip-image-dashboard " style="background-image: url(<%=reservation.game.picture_url%>)"">
             <div class="card-trip-dashboard-infos">
-              <%# <h2>Game on: <%= reservation.game.date %></h2>
               <%  fulldate = reservation.game.date %>
               <H1><%= fulldate.strftime("%d %B %Y")  %></H1>
               <H2><%= reservation.game.address %></H2>
