@@ -3,25 +3,37 @@
     <div>
       <h1 class="header-title">About the game</h1>
       <div class="show-container">
-          <img src="<%= @game.picture_url %>">
-          <div class="infos">
-            <div class="adress">
-              <div class="adress-icon">
-                <h3>📍</h3>
-              </div>
-              <div class="adress-content">
-                <p><%= @game.address %></p>
-                <p><%= @game.city %></p>
-                <% if  current_player == @game.creator%>
-                  <p><strong>Created by you</strong></p>
-                <% else %>
-                  <p>With: <strong><%="#{@game.creator.name} #{@game.creator.last_name}"%></strong></p>
-                  <p>Contact: <%= "#{@game.creator.email}"%></p>
-                  <p>Experience: <%="#{@game.creator.years}"%> years</p>
-                  <p>Age: <%="#{@game.creator.age}"%></p>
-                <% end %>
-              </div>
+        <img src="<%= @game.picture_url %>">
+        <div class="controls">
+          <%= link_to "⬅️ Back ",root_path, id: 'back' %>
+          <% if current_player == @game.creator %>
+            <%= link_to "✒️ Edit ",edit_game_path(@game), id:'edit' %>
+            <%= link_to "❌ Delete", game_path(@game),
+            method: :delete,
+            data: {confirm: "Are you sure?"},
+            class: "nav-item px-1",
+            id: "delete"
+          %>
+          <% end %>
+        </div>
+        <div class="infos">
+          <div class="adress">
+            <div class="adress-icon">
+              <h3>📍</h3>
             </div>
+            <div class="adress-content">
+              <p><%= @game.address %></p>
+              <p><%= @game.city %></p>
+              <% if  current_player == @game.creator%>
+                <p><strong>Created by you</strong></p>
+              <% else %>
+                <p>With: <strong><%="#{@game.creator.name} #{@game.creator.last_name}"%></strong></p>
+                <p>Contact: <%= "#{@game.creator.email}"%></p>
+                <p>Experience: <%="#{@game.creator.years}"%> years</p>
+                <p>Age: <%="#{@game.creator.age}"%></p>
+              <% end %>
+            </div>
+          </div>
           <div class="show-date">
             <div class="date-icon">
               <h3>📅</h3>
@@ -31,17 +43,6 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="controls">
-        <%= link_to "⬅️ Back ",root_path %>
-        <% if current_player == @game.creator %>
-            <%= link_to "✒️ Edit ",edit_game_path(@game) %>
-            <%= link_to "✒️Delete", game_path(@game),
-            method: :delete,
-            data: {confirm: "Are you sure?"},
-            class: "nav-item px-1"
-          %>
-        <% end %>
       </div>
     </div>
   </div>
@@ -91,12 +92,12 @@
   <div class="row">
     <div class="col">
       <h2 class="header-title">Comments</h2>
-      <div id="reviews">
+      <div id="comments">
         <% if @game.reviews.blank? %>
-          <p>Ask a question or leave a comment to <%= @game.creator.name %></p>
+          <p>Be the first to ask a question or leave a comment to <%= @game.creator.name %></p>
         <% else %>
           <% @game.reviews.each do |review| %>
-            <div class="review">
+            <div class="comment">
             <p>By <strong><%= review.player.name  %></strong></p>
             <i><%= review.content %></i>
             <p id="review-date">On: <%= time_ago_in_words review.created_at %> </p>
@@ -104,7 +105,8 @@
           <% end %>
         <% end %>
 
-        <%= simple_form_for([ @game, @review ]) do |f| %>
+        <%= simple_form_for([ @game, @review ]) do |f| %>gs
+        <p><strong>Ask a question or leave a comment to <%= @game.creator.name %></strong></p>
           <%= f.input :content, placeholder: "Share your thoughts...and post something " %>
           <%= f.submit "Post", class: "create-game-button" %>
         <% end %>

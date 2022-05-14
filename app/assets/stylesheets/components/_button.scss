@@ -12,8 +12,25 @@
   color: inherit;
 }
 
+#back {
+  color: black;
+  width: 163px;
+  text-align: center;
+}
 
+#edit {
+  color: black;
+  width: 163px;
+  text-align: center;
+  border-left: solid grey 1px;
+}
 
+#delete {
+  color: black;
+  width: 163px;
+  text-align: center;
+  border-left: solid grey 1px;
+}
 
 .find-my-game {
   color: black;
@@ -33,7 +50,7 @@
 .navbar-button {
   color: black;
   padding: 16px 24px;
-  border-radius: 2px;
+  border-radius: 10px;
   background: orange;
   transition: background 0.3s ease;
   font-weight: bold;
