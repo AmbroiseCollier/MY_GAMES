@@ -36,7 +36,7 @@
         <%= link_to "⬅️ Back ",root_path %>
         <% if current_player == @game.creator %>
             <%= link_to "✒️ Edit ",edit_game_path(@game) %>
-            <%= link_to "✒️ Delete", game_path(@game),
+            <%= link_to "✒️Delete", game_path(@game),
             method: :delete,
             data: {confirm: "Are you sure?"},
             class: "nav-item px-1"
@@ -55,7 +55,7 @@
           <div class="show-card">
             <div class="card-product-infos">
               <h2><%= player.name %> <%= player.last_name %></h2>
-              <h2><%= player.email %></h2>
+              <p>Email :<%= player.email %></p>
               <p>Age: <%=player.age%> | Experience: <%=player.years%> years</p>
               <div class="show-message">
                 <p><%= player.name %> send this message :</p>
@@ -82,7 +82,7 @@
         <h2>Do you want to play ?</h2>
         <%= simple_form_for([@game, @reservation]) do |f| %>
           <%= f.input :message, placeholder: "Write your rival" %>
-          <%= f.submit "Let's ball", class: "btn btn-primary" %>
+          <%= f.submit "Let's ball", class: "create-game-button" %>
         <% end %>
       <% end %>
     </div>
@@ -95,16 +95,18 @@
           <p>Be the first to leave a review for this game</p>
         <% else %>
           <% @game.reviews.each do |review| %>
-            <article><%= review.content %>
-            <p>By <%= review.player.name  %>:</p></article>
-            <p>On: <%= time_ago_in_words review.created_at %> </p>
+            <div class="review">
+            <p>By <strong><%= review.player.name  %></strong></p>
+            <i><%= review.content %></i>
+            <p id="review-date">On: <%= time_ago_in_words review.created_at %> </p>
+            </div>
           <% end %>
         <% end %>
 
         <%= simple_form_for([ @game, @review ]) do |f| %>
           <%= f.input :content, placeholder: "Share your thoughts...and post something " %>
           <%= f.input :rating, collection: Review::RATING %>
-          <%= f.submit "Review", class: "btn btn-primary" %>
+          <%= f.submit "Review", class: "create-game-button" %>
         <% end %>
       </div>
     </div>

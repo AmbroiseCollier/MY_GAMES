@@ -1,102 +1,55 @@
-.card-playground {
+// .card-trip {
+//   overflow: hidden;
+//   background-color: transparent;
+//   opacity: 0.8;
+//   border-radius: 10px;
+//   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+// }
+
+.card-trip-image {
+  width: 100%;
+  height: 15rem;
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(0);
+  -webkit-filter: grayscale(0);
   overflow: hidden;
-  background: black;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  border-radius: 50px;
-}
-
-/* added */
-
-.card-trip {
-  overflow: hidden;
-  background-color: black;
-
-  opacity: 0.8;
   border-radius: 10px;
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
-.card-trip:hover {
-opacity: 0.6;
-transform: translate(0, -5px);
-
-&__button {
-  display: inline-block;
-  padding: 10px 20px;
-  color: white;
-  border: 1px solid white;
-  font-family: 'Roboto', sans-serif;
-  font-size: 12px;
-  text-transform: uppercase;
-  text-decoration: none;
-  transition: .3s;
-}
-
-}
-
-.card-trip > img {
-  height: 200px;
-  width: 100%;
-  object-fit: cover;
-  opacity: 1;
-  -webkit-box-reflect:below 2px linear-gradient(transparent, transparent, #0004);
-  transition:0.5s;
-
-}
-
-.card-trip > img:hover {
-  transform:perspective(800px)       rotateY(0deg);
-  opacity:0.6;
-  transform-origin:center;
-  transform:perspective(800px) rotateY(25deg);
-  transition:0.5s;
-  background-color: black;
-}
-
-.card-trip h2 {
+.card-trip-info h2 {
   font-size: 16px;
   font-weight: bold;
   margin: 0;
-  color: white;
-  font-weight: bold;
+  color: black;
   padding-right: 10px;
   padding-left: 10px;
   margin-top: 10px;
+  background: #CCCC;
+  opacity: 0.9;
 }
 
-.card-trip p {
+.card-trip-info p {
   font-size: 16px;
-  opacity: .7;
   margin: 0;
-  color: white;
+  color: black;
   padding-right: 10px;
   padding-left: 10px;
+  background: #CCCC;
+  opacity: 0.9;
 }
 
 
-
-/* added */
-
-.card-trip .card-trip-infos {
-  padding: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  position: relative;
-  padding-right: 10px;
-  padding-left: 10px;
-}
-
-.card-bottom > a {
-  text-align: left;
-  text-decoration: none;
-  list-style-type: none;
+.card-bottom p {
   margin: 0px;
   padding: 0px;
   padding-right: 10px;
   padding-left: 10px;
   margin-bottom: 5px;
-  font-size: 16px;
 }
 
 .show-card {
@@ -108,7 +61,7 @@ transform: translate(0, -5px);
   align-items: center;
   justify-content: space-between;
   margin: 20px;
-  padding: 10px;
+  padding: 80px 20px;
 }
 
 .show-card h2 {
@@ -129,3 +82,83 @@ transform: translate(0, -5px);
   border-top: solid gray 2px;
   margin-top: 8px;
 }
+
+// .card-trip-image:hover {
+//     opacity: 0.8;
+//     transform: translate(0, -5px);
+//     background-color: transparent;
+//     box-shadow: none;
+//     filter: grayscale(0.4);
+//     -webkit-filter: grayscale(0.4);
+// }
+
+
+.card-trip-image:hover {
+  filter: grayscale(0.9);
+  -webkit-filter: grayscale(0.9);
+
+  .card-trip-info {
+    transform: translateY(-80px);
+    text-align: center;
+    background-color: transparent;
+    opacity: 1;
+  }
+
+  .card-trip-info p {
+    background-color: transparent;
+    opacity: 1;
+    color: white;
+  }
+
+  .card-trip-info H2 {
+    background-color: transparent;
+    opacity: 1;
+    color: white;
+  }
+
+  .card-trip-info H1 {
+    display: block;
+    color: white;
+    font-weight: bold;
+  }
+}
+
+.card-trip-info H1 {
+  display: none;
+}
+// .card-trip-info H1 {
+//   display: hidden;
+// }
+
+//   .card-bottom {
+//     transform: translateY(-150px);
+//     font-weight: bold;
+//     text-align: center;
+//   }
+
+//   .card-bottom > p {
+//     font-size: 24px;
+//     text-align: center;
+//     font-weight: bold;
+//   }
+//
+
+
+ /*  .card-trip > img {
+    -webkit-box-reflect: none;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform: scale(1.1);
+  } */
+
+
+
+
+// .main-card > img {
+//   height: 200px;
+//   width: 100%;
+//   object-fit: cover;
+//   opacity: 1;
+//   // -webkit-box-reflect:below 2px linear-gradient(transparent, transparent, #0004);
+// }
