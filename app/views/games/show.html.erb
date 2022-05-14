@@ -105,7 +105,7 @@
           <% end %>
         <% end %>
 
-        <%= simple_form_for([ @game, @review ]) do |f| %>gs
+        <%= simple_form_for([ @game, @review ]) do |f| %>
         <p><strong>Ask a question or leave a comment to <%= @game.creator.name %></strong></p>
           <%= f.input :content, placeholder: "Share your thoughts...and post something " %>
           <%= f.submit "Post", class: "create-game-button" %>
