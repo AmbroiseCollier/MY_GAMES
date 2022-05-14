@@ -72,6 +72,7 @@ array = [player1, player2, player3, player5, player6]
 message = ['Sure, let s play ball','Can we change the time?','Hey Man, count on me','I ll lock your ass up','Dispo!','Yo, Im up for it','Hi, I want to play']
 myplayer = array.sample
 resa = ''
+comment = ''
 
 puts "Creating games..."
 10.times do
@@ -100,14 +101,29 @@ puts "Creating games..."
   end
   puts "Reservation #{resa1.id} created"
 
+  5.times do
+    array1 = [player1, player2, player3, player5, player6]
+    message1 = ["Yo, do you've a ball?",'Can we change the time?',"Dude, your shots are like all my Facebook messages to my ex-girlfriend — desperate, pathetic, and every one of them gets blocked.",'I ll lock your ass up',"Bring out your Turkey's because I brought the STUFFING!", "I’m just looking around to see who’s gonna finish second.", "Get your popcorn ready, 'cause I'm gonna put on a show"]
+    myplayer1 = array1.sample
+
+    comment = Review.create!(
+      game_id: game.id,
+      player_id: myplayer1.id,
+      content: message1.sample,
+      created_at: Faker::Date.between(from: 2.days.ago, to: Date.today)
+    )
+
+  end
+    puts "Comment #{comment.id} created"
+
 
 end
 
-6.times do
+10.times do
   images = ['https://www.courtsoftheworld.com/upload/courts/8375/0/COTW-bir-hakeim-playground-1635761352.jpeg', 'https://www.courtsoftheworld.com/upload/courts/8375/0/COTW-Bir-Hakeim-Playground-1435374288.jpg' ,'https://storage.googleapis.com/eyp-wordpress/1/2020/01/playground-pigalle.jpg' , 'https://www.courtsoftheworld.com/upload/courts/8375/0/COTW-Bir-Hakeim-Playground-1635759767.jpg']
   game = Game.create!(
     address: "77-101 Quai Branly Paris 75015,France",
-    date: Faker::Date.in_date_period,
+    date: '2022-05-22',
     city: "Paris",
     picture_url: images.sample,
     creator: array.sample
@@ -123,6 +139,7 @@ end
   puts "Reservation #{resa.id} created"
 
 end
+
 
 4.times do
   images = ['https://www.courtsoftheworld.com/upload/courts/108/0/COTW-Stade-George-Carpentier-1568312843.jpg', 'https://media.routard.com/image/55/1/photo.1444551.w430.jpg']
@@ -150,6 +167,31 @@ end
   game = Game.create!(
     address: "155TH St And Frederick Douglass Blvd, New York, NY 10039 ",
     date: Faker::Date.in_date_period,
+    city: "New York",
+    picture_url: images.sample,
+    creator: array.sample
+  )
+  puts "Game #{game.id}"
+
+  10.times do
+    array1 = [player1, player2, player3, player5, player6]
+    message1 = ['Sure, let s play ball','Can we change the time?','Hey Man, count on me','I ll lock your ass up','Dispo!','Yo, Im up for it','Hi, I want to play']
+    myplayer1 = array1.sample
+
+    resa = Reservation.create!(
+      game_id: game.id,
+      player_id: myplayer1.id,
+      message: message1.sample
+    )
+  end
+  puts "Reservation #{resa.id} created"
+end
+
+5.times do
+  images = ['https://s3-media0.fl.yelpcdn.com/bphoto/juTToJyiimNKdY4lFZ61wQ/o.jpg', 'https://s3-media0.fl.yelpcdn.com/bphoto/N2k5yNuldHfRDLZ7fhbT2Q/o.jpg', 'https://s3-media0.fl.yelpcdn.com/bphoto/lAA4idl8GVihXk_Md0sREw/o.jpg', 'https://s3-media0.fl.yelpcdn.com/bphoto/AX1TR0HOBKrJ1e7qE73R0g/o.jpg', 'https://s3-media0.fl.yelpcdn.com/bphoto/h_eJnuw8D05tsrY5rYfHfQ/o.jpg', 'https://s3-media0.fl.yelpcdn.com/bphoto/rNLoq-qfk1hlNs_Pbl9Wrg/o.jpg']
+  game = Game.create!(
+    address: "155TH St And Frederick Douglass Blvd, New York, NY 10039 ",
+    date: '2022-05-22',
     city: "New York",
     picture_url: images.sample,
     creator: array.sample
