@@ -75,7 +75,7 @@ resa = ''
 comment = ''
 
 puts "Creating games..."
-10.times do
+3.times do
   resa1 = ''
 
   images = ['https://www.courtsoftheworld.com/upload/courts/7022/0/COTW-Parc-Montsouris-1476553126.jpg','https://img.20mn.fr/D_enV1s2Q6u0Dl7cIvGPUw/830x532_playground-duperre-ixe.jpg','https://static.dezeen.com/uploads/2017/06/basket-court-pigalle-studio-architecture-public-leisure-paris-france-_dezeen_hero-b.jpg' ,'https://www.courtsoftheworld.com/upload/courts/7022/0/COTW-Parc-Montsouris-1476552999.jpg']
@@ -88,7 +88,7 @@ puts "Creating games..."
   )
   puts "Game #{game.id} created"
 
-  10.times do
+  4.times do
     array1 = [player1, player2, player3, player5, player6]
     message1 = ['Sure, let s play ball','Can we change the time?','Hey Man, count on me','I ll lock your ass up','Dispo!','Yo, Im up for it','Hi, I want to play']
     myplayer1 = array1.sample
@@ -100,7 +100,7 @@ puts "Creating games..."
     )
   end
   puts "Reservation #{resa1.id} created"
-
+ #comment
   5.times do
     array1 = [player1, player2, player3, player5, player6]
     message1 = ["Yo, do you've a ball?",'Can we change the time?',"Dude, your shots are like all my Facebook messages to my ex-girlfriend — desperate, pathetic, and every one of them gets blocked.",'I ll lock your ass up',"Bring out your Turkey's because I brought the STUFFING!", "I’m just looking around to see who’s gonna finish second.", "Get your popcorn ready, 'cause I'm gonna put on a show"]
