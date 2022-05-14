@@ -55,7 +55,7 @@
           <% player = Player.find(reservation.player_id) %>
           <div class="show-card">
             <div class="card-product-infos">
-              <h2> <%= player.last_name %></h2>
+              <h2> <%= player.name %> <%= player.last_name %></h2>
               <p>Email :<%= player.email %></p>
               <p>Age: <%=player.age%> | Experience: <%=player.years%> years</p>
               <div class="show-message">
@@ -83,7 +83,9 @@
         <h2>Do <strong>you</strong> want to play, young blood ?</h2>
         <%= simple_form_for([@game, @reservation]) do |f| %>
           <%= f.input :message, placeholder: "Write your rival a message, and please feel free to trashtalk like Gary Payton." %>
-          <%= f.submit "Participate", class: "create-game-button" %>
+          <div class="participate-btn">
+            <%= f.submit "Participate", class: "create-game-button" %>
+          </div>
         <% end %>
       </div>
     <% end %>
@@ -93,18 +95,13 @@
     <div class="col">
       <h2 class="header-title">Comments</h2>
       <div id="comments">
-        <% if @game.reviews.blank? %>
-          <p>Be the first to ask a question or leave a comment to <%= @game.creator.name %></p>
-        <% else %>
-          <% @game.reviews.each do |review| %>
-            <div class="comment">
+        <% @game.reviews.each do |review| %>
+          <div class="comment">
             <p>By <strong><%= review.player.name  %></strong></p>
             <i><%= review.content %></i>
             <p id="review-date">On: <%= time_ago_in_words review.created_at %> </p>
-            </div>
-          <% end %>
+          </div>
         <% end %>
-
         <%= simple_form_for([ @game, @review ]) do |f| %>
         <p><strong>Ask a question or leave a comment to <%= @game.creator.name %></strong></p>
           <%= f.input :content, placeholder: "Share your thoughts...and post something " %>

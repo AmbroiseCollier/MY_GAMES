@@ -108,3 +108,9 @@ li.navbar-button > a {
   background: rgba(253, 17, 22, 1);
   color: white;
 }
+
+.participate-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
